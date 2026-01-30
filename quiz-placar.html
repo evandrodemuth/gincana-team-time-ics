@@ -448,13 +448,70 @@
             padding: 12px 15px;
             background: var(--bg-card);
             border-radius: 10px;
-            cursor: pointer;
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
 
         .match-team:hover {
             border-color: var(--primary);
+        }
+
+        .match-team-controls {
+            display: flex;
+            gap: 6px;
+            margin-left: auto;
+        }
+
+        .match-score-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .match-score-btn.add {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+        }
+
+        .match-score-btn.add:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .match-score-btn.subtract {
+            background: linear-gradient(135deg, var(--danger), #dc2626);
+            color: white;
+        }
+
+        .match-score-btn.subtract:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .match-winner-btn {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 2px solid var(--success);
+            background: transparent;
+            color: var(--success);
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .match-winner-btn:hover {
+            background: var(--success);
+            color: white;
         }
 
         .match-team.winner {
@@ -678,6 +735,28 @@
             .header-text {
                 align-items: center;
             }
+
+            .match-team {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .match-team-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .match-score-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+
+            .match-winner-btn {
+                flex: 1;
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -722,28 +801,60 @@
                     <div class="bracket-match" id="semifinal1">
                         <div class="match-title">🎵 Semifinal 1</div>
                         <div class="match-teams">
-                            <div class="match-team" id="semi1-team1" onclick="selectWinner('semi1', 1)">
+                            <div class="match-team" id="semi1-team1">
                                 <span class="match-team-name">1º Lugar</span>
                                 <span class="match-team-badge">-</span>
+                                <div class="match-team-controls">
+                                    <button class="match-score-btn subtract"
+                                        onclick="updateSemifinalScore('semi1', 1, -10); event.stopPropagation();">−</button>
+                                    <button class="match-score-btn add"
+                                        onclick="updateSemifinalScore('semi1', 1, 10); event.stopPropagation();">+</button>
+                                    <button class="match-winner-btn"
+                                        onclick="selectWinner('semi1', 1); event.stopPropagation();">✓ Vencedor</button>
+                                </div>
                             </div>
                             <div class="vs-divider">VS</div>
-                            <div class="match-team" id="semi1-team2" onclick="selectWinner('semi1', 2)">
+                            <div class="match-team" id="semi1-team2">
                                 <span class="match-team-name">4º Lugar</span>
                                 <span class="match-team-badge">-</span>
+                                <div class="match-team-controls">
+                                    <button class="match-score-btn subtract"
+                                        onclick="updateSemifinalScore('semi1', 2, -10); event.stopPropagation();">−</button>
+                                    <button class="match-score-btn add"
+                                        onclick="updateSemifinalScore('semi1', 2, 10); event.stopPropagation();">+</button>
+                                    <button class="match-winner-btn"
+                                        onclick="selectWinner('semi1', 2); event.stopPropagation();">✓ Vencedor</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="bracket-match" id="semifinal2">
                         <div class="match-title">🎵 Semifinal 2</div>
                         <div class="match-teams">
-                            <div class="match-team" id="semi2-team1" onclick="selectWinner('semi2', 1)">
+                            <div class="match-team" id="semi2-team1">
                                 <span class="match-team-name">2º Lugar</span>
                                 <span class="match-team-badge">-</span>
+                                <div class="match-team-controls">
+                                    <button class="match-score-btn subtract"
+                                        onclick="updateSemifinalScore('semi2', 1, -10); event.stopPropagation();">−</button>
+                                    <button class="match-score-btn add"
+                                        onclick="updateSemifinalScore('semi2', 1, 10); event.stopPropagation();">+</button>
+                                    <button class="match-winner-btn"
+                                        onclick="selectWinner('semi2', 1); event.stopPropagation();">✓ Vencedor</button>
+                                </div>
                             </div>
                             <div class="vs-divider">VS</div>
-                            <div class="match-team" id="semi2-team2" onclick="selectWinner('semi2', 2)">
+                            <div class="match-team" id="semi2-team2">
                                 <span class="match-team-name">3º Lugar</span>
                                 <span class="match-team-badge">-</span>
+                                <div class="match-team-controls">
+                                    <button class="match-score-btn subtract"
+                                        onclick="updateSemifinalScore('semi2', 2, -10); event.stopPropagation();">−</button>
+                                    <button class="match-score-btn add"
+                                        onclick="updateSemifinalScore('semi2', 2, 10); event.stopPropagation();">+</button>
+                                    <button class="match-winner-btn"
+                                        onclick="selectWinner('semi2', 2); event.stopPropagation();">✓ Vencedor</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -946,6 +1057,35 @@
             // Store team references
             semifinals.semi1 = { team1: sortedTeams[0], team2: sortedTeams[3], winner: null };
             semifinals.semi2 = { team1: sortedTeams[1], team2: sortedTeams[2], winner: null };
+        }
+
+        // Update Semifinal Score
+        function updateSemifinalScore(match, teamNum, delta) {
+            const matchData = semifinals[match];
+            if (!matchData) return;
+
+            const team = teamNum === 1 ? matchData.team1 : matchData.team2;
+            if (!team) return;
+
+            // Update the team score in the main teams array
+            const mainTeam = teams.find(t => t.id === team.id);
+            if (mainTeam) {
+                mainTeam.score = Math.max(0, mainTeam.score + delta);
+                team.score = mainTeam.score;
+            }
+
+            // Update the badge display
+            const badgeEl = document.querySelector(`#${match}-team${teamNum} .match-team-badge`);
+            if (badgeEl) {
+                badgeEl.textContent = `${team.score} pts`;
+            }
+
+            // Update ranking and save
+            updateRanking();
+            renderTeams();
+            saveData();
+
+            showToast(`${team.name}: ${delta > 0 ? '+' : ''}${delta} pontos`);
         }
 
         // Select Winner
