@@ -16,12 +16,12 @@
             --accent: #f59e0b;
             --success: #10b981;
             --danger: #ef4444;
-            --bg-dark: #0f0f23;
-            --bg-card: #1a1a2e;
-            --bg-card-hover: #252542;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --border: #27273f;
+            --bg-dark: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
             --gold: #fbbf24;
             --silver: #9ca3af;
             --bronze: #cd7f32;
@@ -39,8 +39,8 @@
             color: var(--text-primary);
             min-height: 100vh;
             background-image:
-                radial-gradient(ellipse at top, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom right, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+                radial-gradient(ellipse at top, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(236, 72, 153, 0.06) 0%, transparent 50%);
         }
 
         .container {
@@ -162,6 +162,7 @@
             border-radius: 20px;
             padding: 25px;
             border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .section-title {
@@ -181,13 +182,14 @@
         }
 
         .team-card {
-            background: var(--bg-dark);
+            background: var(--bg-card);
             border-radius: 16px;
             padding: 20px;
             border: 2px solid var(--border);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .team-card::before {
@@ -253,8 +255,9 @@
             justify-content: center;
             font-weight: 800;
             font-size: 0.9rem;
-            background: var(--bg-card);
+            background: var(--bg-card-hover);
             color: var(--text-secondary);
+            border: 2px solid var(--border);
         }
 
         .team-rank.rank-1 {
@@ -346,6 +349,7 @@
             border-radius: 20px;
             padding: 25px;
             border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .ranking-list {
@@ -381,7 +385,7 @@
             justify-content: center;
             font-weight: 700;
             font-size: 0.85rem;
-            background: var(--bg-dark);
+            background: var(--bg-card-hover);
             color: var(--text-secondary);
         }
 
@@ -407,6 +411,7 @@
             border-radius: 20px;
             padding: 25px;
             border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             display: none;
         }
 
@@ -415,11 +420,12 @@
         }
 
         .bracket-match {
-            background: var(--bg-dark);
+            background: var(--bg-card-hover);
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 15px;
             border: 2px solid var(--border);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
         }
 
         .bracket-match:last-child {
@@ -609,6 +615,7 @@
             border-radius: 20px;
             padding: 20px;
             border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
@@ -685,7 +692,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
             transform: translateX(150%);
             transition: transform 0.4s ease;
             z-index: 1000;
